@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 [CreateAssetMenu(fileName = "Weapon", menuName = "ScriptableObjects/New Weapon")]
 public class Weapon : ScriptableObject
 {
@@ -17,27 +17,51 @@ public class Weapon : ScriptableObject
         BULLET,
         THROWN
     }
+
+    public enum WEAPON
+    {
+        SNOWBALL,
+        CARROT,
+        COAL
+    }
+
+    public WEAPON weapon;
     public WEAPONTYPE weaponType;
     public SPAWNLOCATION spawnEnum;
     public GameObject spawnLocation;
     private GameObject _projectileSpawn;
     public GameObject objectPrefab;
+    public Image weaponImage;
     private Player _user;
 
     public float forwardProjectileForce;
     public float upwardProjectileForce;
     public float reloadTime;
     private float _currentReloadTime;
-    public int ammoCap = 0;
-    public int _ammoCount;
+    public bool unlimitedAmmo;
+    public int totalAmmo = 0;
+    public int ammoCount;
+    public int clipSize;
 
 
     // Start is called before the first frame update
     public void start(Player player)
-    {
+    {       
+        switch (weapon)
+        {
+            case WEAPON.CARROT:
+                weaponImage = UIManager.instance.carrotImage;
+                break;
+            case WEAPON.COAL:
+                weaponImage = UIManager.instance.coalImage;
+                break;
+            case WEAPON.SNOWBALL:
+                weaponImage = UIManager.instance.snowballImage;
+                break;
+        }
         _projectileSpawn = spawnLocation;
         _user = player;
-        _ammoCount = ammoCap;
+        ammoCount = clipSize;
         _currentReloadTime = reloadTime;
         switch (spawnEnum)
         {
@@ -49,23 +73,29 @@ public class Weapon : ScriptableObject
                 break;
             default:
                 break;
-
         }
+        if (unlimitedAmmo)
+        {
+            totalAmmo = 999;
+            ammoCount = 999;
+        }
+        UpdateUI();
     }
 
     // Update is called once per frame
     public void update()
     {
-        if (_ammoCount <= 0)
+        if (ammoCount <= 0)
         {
             Reload();
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {   
-            if (_ammoCount > 0)
+            if (ammoCount > 0 || unlimitedAmmo)
             {
-                _ammoCount--;
+                if (!unlimitedAmmo)
+                    ammoCount--;
                 _user.anim.SetTrigger("Shoot");
 
                 GameObject _bullet = Instantiate(objectPrefab, _projectileSpawn.transform.position, Quaternion.identity);
@@ -79,7 +109,7 @@ public class Weapon : ScriptableObject
                         _bullet.GetComponent<Rigidbody>().AddForce(Vector3.up * forwardProjectileForce, ForceMode.Impulse);
                         break;
                 }
-
+                UpdateUI();
             }
         }
     }
@@ -92,8 +122,26 @@ public class Weapon : ScriptableObject
         }
         else
         {
-            _ammoCount = ammoCap;
+            if (totalAmmo > clipSize)
+            {
+                ammoCount += clipSize;
+                totalAmmo -= clipSize;
+            }
+            else
+            {
+                ammoCount += totalAmmo;
+                totalAmmo = 0;
+            }
             _currentReloadTime = reloadTime;
         }
+    }
+
+    void UpdateUI()
+    {
+        UIManager.instance.ammoCount.text = ammoCount.ToString();
+        if (!unlimitedAmmo)
+            UIManager.instance.totalAmmo.text = totalAmmo.ToString();
+        else
+            UIManager.instance.totalAmmo.text = "999";
     }
 }

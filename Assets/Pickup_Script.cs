@@ -34,7 +34,7 @@ public class Pickup_Script : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Instantiate(Effect_Star, transform.position, transform.rotation);
-                Ammo_script._ammoCount++; // here tom
+                Ammo_script.ammoCount++; // here tom
                 SwapWeapon_Script.SwapWeapon(weapon);
                 Effect_Star.SetActive(pickedUp);
              

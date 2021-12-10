@@ -8,6 +8,7 @@ public class Enemies : MonoBehaviour
     public float health = 50f;
 
     //Reference of AI movement
+    Player player;
     public Vector3 target;
     public float MoveSpeed = 4;
     public float MaxDist = 10;
@@ -26,13 +27,14 @@ public class Enemies : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = FindObjectOfType<Player>();
         _agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _agent.SetDestination(target);
+        _agent.SetDestination(player.transform.position);
     }
 
     private void OnTriggerEnter(Collider other)
