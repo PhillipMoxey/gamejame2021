@@ -25,6 +25,9 @@ public class PowerUp : MonoBehaviour
     void Update()
     {
         _currentLifeSpan -= Time.deltaTime;
-
+        if (_currentLifeSpan <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
