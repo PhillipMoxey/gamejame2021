@@ -13,6 +13,10 @@ public class Enemies : MonoBehaviour
     public float MoveSpeed = 4;
     public float MaxDist = 10;
     public float MinDist = 1;
+    public float magnitude;
+
+    private bool _deathTime; 
+    public float deathTimer; 
 
     //AI attacking player
     public float attackInterval;
@@ -23,6 +27,7 @@ public class Enemies : MonoBehaviour
     //Reference to Nav-mesh for movement
     public NavMeshAgent _agent;
     public GameObject Death_Effect;
+    public GameObject propPrefab; 
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +40,15 @@ public class Enemies : MonoBehaviour
     void Update()
     {
         _agent.SetDestination(player.transform.position);
+
+        if(_deathTime && deathTimer > 0)
+        {
+            deathTimer -= Time.deltaTime; 
+        }
+        else if (_deathTime)
+        {
+            Die(); 
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -45,9 +59,10 @@ public class Enemies : MonoBehaviour
             health -= other.GetComponent<Projectile>().damage; 
             if(health <= 0)
             {
-                _agent.enabled = false;
-                GetComponent<Rigidbody>().AddForce(transform.position + Vector3.forward + Vector3.up, ForceMode.Impulse); 
-                //Destroy(gameObject);
+                //_agent.enabled = false;
+                GameObject _deathProp = Instantiate(propPrefab, transform.position, Quaternion.identity);
+                Die();
+                _deathTime = true; 
                 PlayDeathEffect();
             }
             else
@@ -77,6 +92,7 @@ public class Enemies : MonoBehaviour
     }
     void Die()
     {
+        PlayDeathEffect();
         Destroy(gameObject);
     }
 }
