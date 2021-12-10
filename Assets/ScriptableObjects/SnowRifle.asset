@@ -20,8 +20,8 @@ MonoBehaviour:
   weaponImage: {fileID: 0}
   forwardProjectileForce: 65
   upwardProjectileForce: 0
-  reloadTime: 1
+  reloadTime: 0
   unlimitedAmmo: 1
-  totalAmmo: 0
-  ammoCount: 0
+  totalAmmo: 999
+  ammoCount: 999
   clipSize: 0
