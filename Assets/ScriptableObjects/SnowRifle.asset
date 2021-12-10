@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886bc736784f618458ec250f1dc893da, type: 3}
+  m_Name: SnowRifle
+  m_EditorClassIdentifier: 
+  weaponType: 0
+  spawnEnum: 0
+  spawnLocation: {fileID: 0}
+  objectPrefab: {fileID: 4635413347062302598, guid: f16a672e10320354e9c881710f51ceaa, type: 3}
+  forwardProjectileForce: 65
+  upwardProjectileForce: 0
+  reloadTime: 1
+  ammoCap: 6
+  _ammoCount: 4

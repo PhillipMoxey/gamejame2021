@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: bfe09514376f8ca49b6fd1ac2dcc7776
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - backgroundMusic: {fileID: 8300000, guid: 47355f71229d6b14fac7b05452ead076, type: 3}
+  - mainMenuMusic: {fileID: 8300000, guid: 6723c0623e30f3847a505dc4ad7c78c9, type: 3}
+  - pauseMenu: {fileID: 8300000, guid: 3df26b201a17f8243ad7844f128701f2, type: 3}
+  - gameOver: {fileID: 8300000, guid: a76cc438eea2e7c4ab13cec59e608613, type: 3}
+  - roundStarted: {fileID: 8300000, guid: 7fe713724148f19459f260f287747a47, type: 3}
+  - roundWon: {fileID: 8300000, guid: d9d912e53b0564948abbcd5c956972f2, type: 3}
+  - enemyDies: {fileID: 8300000, guid: 0e0530e136f9c3947a9d0a2baab5f819, type: 3}
+  - enemyHit: {fileID: 8300000, guid: 2c070e25a9821c74195830295ce821e9, type: 3}
+  - playerHit: {fileID: 8300000, guid: a21ef0edbc502334e9fc670b602cf529, type: 3}
+  - coalGrenade: {fileID: 8300000, guid: 4d5f1a1be0cd46b4c9201a832bb492c7, type: 3}
+  - throwGrenade: {fileID: 8300000, guid: 58b0afc55e399eb4ba173871365348a3, type: 3}
+  - dash: {fileID: 8300000, guid: 24bdec2cedb85e84a8cbde0940c1e44b, type: 3}
+  - shootCarrots: {fileID: 8300000, guid: fbf73f287596e69428a55803b7982dad, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
