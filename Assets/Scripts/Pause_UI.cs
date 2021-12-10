@@ -11,13 +11,13 @@ public class Pause_UI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PauseObject.SetActive(false);
+        //PauseObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        PauseObject.SetActive(isPaused);
+        //PauseObject.SetActive(isPaused);
 
      if(Input.GetKeyDown(KeyCode.Escape))
         {
@@ -27,7 +27,7 @@ public class Pause_UI : MonoBehaviour
 
     public void Resume()
     {
-        PauseObject.SetActive(false);
+        //PauseObject.SetActive(false);
         isPaused = !isPaused;
     }
 }

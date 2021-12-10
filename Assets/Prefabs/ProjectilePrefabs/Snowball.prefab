@@ -156,10 +156,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a97f39cd2c62c43b01a91672127cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 1
   destroyOnContact: 1
-  explosive: 0
-  explosionRadius: 0
+  explosive: 1
+  explosionRadius: 2
   timer: 2.3
 --- !u!1001 &1709810588396312160
 PrefabInstance:

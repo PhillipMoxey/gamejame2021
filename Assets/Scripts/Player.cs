@@ -71,8 +71,8 @@ public class Player : MonoBehaviour
             lookVector = hit.point;
             lookVector.y = 0;
             transform.LookAt(lookVector);
-            Debug.Log(hit.transform.name);
-            Debug.Log("hit");
+            //Debug.Log(hit.transform.name);
+            //Debug.Log("hit");
         }
     }
 

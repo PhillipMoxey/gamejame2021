@@ -76,7 +76,8 @@ public class WaveManager : MonoBehaviour
         if(enemyAmount[waveNumber] > 0)
         {
             //ADD INSTANTIATE CODE HERE 
-            GameObject enemy = Instantiate(Enemy_Prefab, this.transform.position, Quaternion.identity);
+            int _index = Random.Range(0, _spawners.Length); 
+            GameObject enemy = Instantiate(Enemy_Prefab, _spawners[_index].transform.position, Quaternion.identity);
             enemy.GetComponent<Enemies>().SetTarget(spawnTarget.transform.position);
 
 
@@ -112,6 +113,6 @@ public class WaveManager : MonoBehaviour
 
     void UpdateUI()
     {
-        UIManager.instance.roundNumber.text = waveNumber.ToString();
+        //UIManager.instance.roundNumber.text = waveNumber.ToString();
     }
 }
