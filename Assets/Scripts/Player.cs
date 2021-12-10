@@ -26,12 +26,15 @@ public class Player : MonoBehaviour
 
     public Vector3 _playerInput;
     private CharacterController _characterController;
+
+    private Rigidbody _rb; 
     // Start is called before the first frame update
     void Start()
     {
         _dashing = false;
         _moveSpeed = defaultMoveSpeed;
         _characterController = GetComponent<CharacterController>();
+        _rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -47,7 +50,10 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _characterController.Move(_playerInput * _moveSpeed * Time.deltaTime);
+
+        _rb.MovePosition(transform.position + (_playerInput * _moveSpeed * Time.deltaTime));
+
+        //_characterController.Move(_playerInput * _moveSpeed * Time.deltaTime);
     }
 
     void ReadInput()
