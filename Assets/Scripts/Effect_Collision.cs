@@ -8,11 +8,18 @@ public class Effect_Collision : MonoBehaviour
 
 
 
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Present"))
         {
             Instantiate(Snowy_Explosion, transform.position, transform.rotation);
+            Destroy(gameObject); 
+        }
+        if (other.CompareTag("Enemy"))
+        {
+            Instantiate(Snowy_Explosion, transform.position, transform.rotation);
+            Destroy(gameObject);
         }
     }
 }

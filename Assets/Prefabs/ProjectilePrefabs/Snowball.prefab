@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6473218354122954843}
   - component: {fileID: 8174782153703271211}
   - component: {fileID: 504756901919437423}
-  - component: {fileID: 2176990685150271330}
   - component: {fileID: 6477509788149255358}
   - component: {fileID: 4589857397014011712}
   m_Layer: 8
@@ -118,19 +117,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2176990685150271330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4635413347062302598}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf45b75c2bc95f54d97bf504b4087175, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: {x: 0, y: 0, z: 0}
 --- !u!114 &6477509788149255358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,8 +144,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   destroyOnContact: 1
-  explosive: 1
-  explosionRadius: 2
+  explosive: 0
+  explosionRadius: 0
   timer: 2.3
 --- !u!1001 &1709810588396312160
 PrefabInstance:

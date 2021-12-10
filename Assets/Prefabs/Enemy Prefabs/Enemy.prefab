@@ -486,14 +486,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  Player: {fileID: 0}
+  target: {x: 0, y: 0, z: 0}
   MoveSpeed: 4
   MaxDist: 10
   MinDist: 1
   attackInterval: 0
   damage: 0
   _agent: {fileID: 0}
-  player: {fileID: 0}
   Death_Effect: {fileID: 0}
 --- !u!65 &1035643133828531509
 BoxCollider:
@@ -523,7 +522,7 @@ GameObject:
   - component: {fileID: 3818067830290883138}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -578,15 +577,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e1b3b4dd3c66ab42ac95e815b1a8a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  Player: {fileID: 0}
+  health: 4
+  target: {x: 0, y: 0, z: 0}
   MoveSpeed: 4
   MaxDist: 10
   MinDist: 1
   attackInterval: 0
   damage: 0
   _agent: {fileID: 0}
-  player: {fileID: 0}
   Death_Effect: {fileID: 677081588873098426, guid: eed820d60a528a449a63474925078f50, type: 3}
 --- !u!65 &1680438661277047023
 BoxCollider:

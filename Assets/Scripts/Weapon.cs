@@ -96,7 +96,7 @@ public class Weapon : ScriptableObject
             {
                 if (!unlimitedAmmo)
                     ammoCount--;
-                _user.anim.SetTrigger("Shoot");
+                //_user.anim.SetTrigger("Shoot");
 
                 GameObject _bullet = Instantiate(objectPrefab, _projectileSpawn.transform.position, Quaternion.identity);
                 switch (weaponType)

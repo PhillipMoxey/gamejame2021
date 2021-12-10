@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float damage;
+    public int damage;
     public bool destroyOnContact;
     public bool explosive;
     public float explosionRadius;

@@ -42,8 +42,19 @@ public class Enemies : MonoBehaviour
         //TEMP SCRIPT - just kills enemy on collision
         if(other.CompareTag("Bullet"))
         {
-            Destroy(gameObject);
-            PlayDeathEffect();
+            health -= other.GetComponent<Projectile>().damage; 
+            if(health <= 0)
+            {
+                _agent.enabled = false;
+                GetComponent<Rigidbody>().AddForce(transform.position + Vector3.forward + Vector3.up, ForceMode.Impulse); 
+                //Destroy(gameObject);
+                PlayDeathEffect();
+            }
+            else
+            {
+                MoveSpeed = 2f; 
+            }
+            
         }
     }
     public void TakeDamage(float amount)
