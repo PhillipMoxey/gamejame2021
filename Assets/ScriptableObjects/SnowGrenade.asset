@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886bc736784f618458ec250f1dc893da, type: 3}
   m_Name: SnowGrenade
   m_EditorClassIdentifier: 
+  weapon: 0
   weaponType: 1
   spawnEnum: 0
   spawnLocation: {fileID: 0}
   objectPrefab: {fileID: 4635413347062302598, guid: 629b84e1edf25364d86b665ba15fe700, type: 3}
+  weaponImage: {fileID: 0}
   forwardProjectileForce: 22
   upwardProjectileForce: 8
   reloadTime: 2
-  ammoCap: 2
-  _ammoCount: 0
+  unlimitedAmmo: 0
+  totalAmmo: 2
+  ammoCount: 0
+  clipSize: 0

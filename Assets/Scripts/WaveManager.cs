@@ -39,7 +39,8 @@ public class WaveManager : MonoBehaviour
     void Awake()
     {
         _spawners = GameObject.FindGameObjectsWithTag("Spawnpoint");
-        _spawnTimer = spawnDelay; 
+        _spawnTimer = spawnDelay;
+        UpdateUI();
     }
 
     // Update is called once per frame
@@ -97,17 +98,20 @@ public class WaveManager : MonoBehaviour
         {
             Debug.Log("No More Waves!");
             _completed = true;
+            UIManager.instance.roundNumber.text = "You butchered all your followers!";
         }
         else
         {
             Debug.Log("Next Wave!!");
             waveNumber += 1;
-            
+            UIManager.instance.roundNumber.text = waveNumber.ToString();
+
         }
         nextWave = false;
+    }
 
-
-
-
+    void UpdateUI()
+    {
+        UIManager.instance.roundNumber.text = waveNumber.ToString();
     }
 }
