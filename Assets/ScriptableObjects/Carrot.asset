@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886bc736784f618458ec250f1dc893da, type: 3}
   m_Name: Carrot
   m_EditorClassIdentifier: 
+  weapon: 1
   weaponType: 0
   spawnEnum: 0
   spawnLocation: {fileID: 0}
   objectPrefab: {fileID: 4635413347062302598, guid: d1e7706556034b14db24a2a6407ca35c, type: 3}
+  weaponImage: {fileID: 0}
   forwardProjectileForce: 65
   upwardProjectileForce: 0
   reloadTime: 1
-  ammoCap: 6
-  _ammoCount: 4
+  unlimitedAmmo: 0
+  totalAmmo: 10
+  ammoCount: 0
+  clipSize: 5
