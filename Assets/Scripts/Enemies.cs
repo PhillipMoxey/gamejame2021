@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Enemies : MonoBehaviour
 {
+    public List<PowerUp> powerUpTable = new List<PowerUp>();
     public float health = 50f;
 
     //Reference of AI movement
@@ -42,8 +43,10 @@ public class Enemies : MonoBehaviour
         //TEMP SCRIPT - just kills enemy on collision
         if(other.CompareTag("Bullet"))
         {
+            PowerUpRoll();
             Destroy(gameObject);
             PlayDeathEffect();
+
         }
     }
     public void TakeDamage(float amount)
@@ -67,6 +70,20 @@ public class Enemies : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+    }
+
+    void PowerUpRoll()
+    {
+        int _index = Random.Range(0, 100);
+        if (_index < 20)
+        {
+            int _indexPower = Random.Range(0, 100);
+            if (_indexPower < 50)
+                Instantiate(powerUpTable[0], gameObject.transform.position, Quaternion.identity);
+            else
+                Instantiate(powerUpTable[1], gameObject.transform.position, Quaternion.identity);
+
+        }
     }
 }
 
