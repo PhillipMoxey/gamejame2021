@@ -47,18 +47,19 @@ public class Weapon : ScriptableObject
     // Start is called before the first frame update
     public void start(Player player)
     {       
-        switch (weapon)
-        {
-            case WEAPON.CARROT:
-                weaponImage = UIManager.instance.carrotImage;
-                break;
-            case WEAPON.COAL:
-                weaponImage = UIManager.instance.coalImage;
-                break;
-            case WEAPON.SNOWBALL:
-                weaponImage = UIManager.instance.snowballImage;
-                break;
-        }
+        if (UIManager.instance)
+            switch (weapon)
+            {
+                case WEAPON.CARROT:
+                    weaponImage = UIManager.instance.carrotImage;
+                    break;
+                case WEAPON.COAL:
+                    weaponImage = UIManager.instance.coalImage;
+                    break;
+                case WEAPON.SNOWBALL:
+                    weaponImage = UIManager.instance.snowballImage;
+                    break;
+            }
         _projectileSpawn = spawnLocation;
         _user = player;
         ammoCount = clipSize;
@@ -79,7 +80,8 @@ public class Weapon : ScriptableObject
             totalAmmo = 999;
             ammoCount = 999;
         }
-        UpdateUI();
+        if (UIManager.instance)
+            UpdateUI();
     }
 
     // Update is called once per frame
@@ -87,6 +89,8 @@ public class Weapon : ScriptableObject
     {
         if (ammoCount <= 0)
         {
+            if (totalAmmo <= 0)
+                DropWeapon();
             Reload();
         }
 
@@ -109,13 +113,15 @@ public class Weapon : ScriptableObject
                         _bullet.GetComponent<Rigidbody>().AddForce(Vector3.up * forwardProjectileForce, ForceMode.Impulse);
                         break;
                 }
-                UpdateUI();
+                if (UIManager.instance)
+                 UpdateUI();
             }
         }
     }
     void Reload()
     {
-        _user.anim.SetTrigger("Reload");
+        if (_user.anim)
+            _user.anim.SetTrigger("Reload");
         if (_currentReloadTime > 0)
         {
             _currentReloadTime -= Time.deltaTime;
@@ -134,6 +140,11 @@ public class Weapon : ScriptableObject
             }
             _currentReloadTime = reloadTime;
         }
+    }
+
+    void DropWeapon()
+    {
+        _user.loadout.activeWeapon = _user.loadout.defaultWeapon;
     }
 
     void UpdateUI()
